@@ -19,7 +19,31 @@ public class FactionList
 
     public void load(Context context)
     {
+        //opens the database
         this.db = new FactionDbHelper( context.getApplicationContext() ).getWritableDatabase();
+
+        // read database contents into factionList
+        FactionCursor cursor = new FactionCursor( db.query( FactionTable.NAME,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null,
+                                null) );
+
+        try
+        {
+            cursor.moveToFirst();
+            while( !cursor.isAfterLast() )
+            {
+                add( cursor.getFaction() );
+                cursor.moveToNext();
+            }
+        }
+        finally
+        {
+            cursor.close();
+        }
     }
 
     public int size()

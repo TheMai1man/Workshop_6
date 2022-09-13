@@ -1,8 +1,6 @@
 package com.example.workshop_6;
 
-
 import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
