@@ -36,7 +36,7 @@ public class FactionList
             cursor.moveToFirst();
             while( !cursor.isAfterLast() )
             {
-                add( cursor.getFaction() );
+                factions.add( cursor.getFaction() );
                 cursor.moveToNext();
             }
         }
